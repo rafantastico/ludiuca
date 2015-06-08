@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='ludiuca'>
+  <!-- Inherit the core Web Toolkit stuff.                        -->
+  <inherits name='com.google.gwt.user.User'/>
+
+  <!-- Inherit the default GWT style sheet.                       -->
+  <inherits name='com.google.gwt.user.theme.clean.Clean'/>
+  <!-- Inherit the UiBinder module.                               -->
+  <inherits name="com.google.gwt.uibinder.UiBinder"/>
+  <!-- Specify the app entry point class.                         -->
+  <entry-point class='es.ugr.rodgom.ludiuca.client.Ludiuca'/>
+  
+  <!-- Specify the paths for translatable code                    -->
+  <source path='client'/>
+  <source path='shared'/>
+
+</module>

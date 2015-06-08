@@ -1,0 +1,207 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g='urn:import:com.google.gwt.user.client.ui' xmlns:ludiuca='urn:import:es.ugr.rodgom.ludiuca.client.student'>
+
+	<ui:image field='gradient' src='gradient_bg_dark.png'
+		repeatStyle='Horizontal' />
+
+	<ui:style>
+   .textbox {
+		width: 150px;
+		height: 25px;
+		}
+  .textarea {
+		width: 150px;
+		height: 50px;
+		resize: none;
+		}
+  .button {
+    margin: 0;
+    padding: 5px 7px;
+    text-decoration: none;
+    cursor: pointer;
+    cursor: hand;
+    font-size:small;
+    border:1px solid #bbb;
+    border-bottom: 1px solid #a0a0a0;
+    border-radius: 3px;
+   -moz-border-radius: 3px;
+  }
+  .outer {
+    border-left: 1px solid #999;
+    border-bottom: 1px solid #999;
+    cursor: pointer;
+    cursor: hand;
+  }
+
+  @sprite .header {
+  	gwt-image: 'gradient';
+  	background-color: #d3d6dd;
+    table-layout: fixed;
+    width: 100%;
+    height: 100%;
+  }
+
+  .label{
+	margin: 10px;
+  }
+  .titulo{
+	font-weight: bold;
+	font-size: 150%;
+	}
+  .header td {
+    font-weight: bold;
+    text-shadow: #fff 0 2px 2px;
+    padding: 2px 0 1px 10px;
+    border-top: 1px solid #999;
+    border-bottom: 1px solid #999;
+  }
+
+  .table {
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  .table td {
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    padding: 2px 0 2px 10px;
+  }
+  </ui:style>
+
+	<ui:style field='selectionStyle'
+		type='es.ugr.rodgom.ludiuca.client.student.CentralPan.SelectionStyle'>
+
+  .selectedRow {
+    background: #adcce7;
+  }
+
+  .goldRow {
+    background: #FFD700;
+  }
+
+  .silverRow {
+    background: #C0C0C0;
+  }
+
+  .bronzeRow{
+    background: #CD7F32;
+  }
+
+  .boldRow{
+    font-weight: bold;
+  }
+
+  .selectedRow td {
+    border-top: 1px solid #88a4d6;
+    border-bottom: 1px solid #7b97d0;
+  }
+  </ui:style>
+
+	<g:DockLayoutPanel styleName='{style.outer}' unit='EM'>
+		<g:north size="3">
+			<g:FlexTable ui:field='header' styleName='{style.header}'
+				cellSpacing='0' cellPadding='0' />
+		</g:north>
+		<g:center>
+			<g:DeckPanel ui:field="deck">
+				<g:VerticalPanel>
+					<g:ScrollPanel>
+						<g:FlexTable ui:field='table' styleName='{style.table}'
+							cellSpacing='0' cellPadding='0' />
+					</g:ScrollPanel>
+					<g:FlexTable ui:field='navBarTable' styleName='{style.table}'
+						cellSpacing='0' cellPadding='0' />
+					<g:cell horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_MIDDLE">
+						<g:Button ui:field='puntosButton' styleName='{style.button}'>Puntuar</g:Button>
+					</g:cell>
+				</g:VerticalPanel>
+				<g:VerticalPanel horizontalAlignment="ALIGN_CENTER"><!-- LOGROS -->
+				    <g:ScrollPanel height="300px">
+				        <g:FlexTable ui:field='taskTable' styleName='{style.table}'
+							cellSpacing='0' cellPadding='0' />
+				    </g:ScrollPanel>
+				    <g:DecoratorPanel>
+				        <g:VerticalPanel horizontalAlignment="ALIGN_CENTER">
+				            <g:Label styleName='{style.titulo}'>Filtrar</g:Label>
+				            <g:HorizontalPanel verticalAlignment="ALIGN_MIDDLE"  spacing="4">
+			                    <g:Label styleName='{style.label}' width="100px">Tipo tarea: </g:Label>
+			                    <g:ListBox ui:field="listBoxType"  width="200px">
+									  <g:item>
+									    Puntuación
+									  </g:item>
+									  <g:item>
+									    Medalla
+									  </g:item>
+			                    </g:ListBox>
+							</g:HorizontalPanel>
+							<g:HorizontalPanel verticalAlignment="ALIGN_MIDDLE"  spacing="4">
+							    <g:RadioButton ui:field='possibleRadio' ui:name="rbname" width="100px">Posibles</g:RadioButton>
+							    <g:RadioButton ui:field='achievedRadio' ui:name="rbname" width="100px">Conseguidos</g:RadioButton>
+							</g:HorizontalPanel>
+							<g:HorizontalPanel verticalAlignment="ALIGN_MIDDLE"  spacing="4">
+			                    <g:Label styleName='{style.label}' width="100px">Asignatura: </g:Label>
+			                    <g:ListBox ui:field="listBoxCourse"  width="200px"></g:ListBox>
+							</g:HorizontalPanel>
+			                <g:Button ui:field='filtButton' styleName='{style.button}'>Filtrar</g:Button>
+		                </g:VerticalPanel>
+			        </g:DecoratorPanel>
+				</g:VerticalPanel>
+				<g:VerticalPanel horizontalAlignment="ALIGN_CENTER"><!-- CLASIFICACION -->
+				    <g:ScrollPanel>
+				        <g:FlexTable ui:field='classificationTable' styleName='{style.table}'
+							cellSpacing='0' cellPadding='0' />
+				    </g:ScrollPanel>
+				    <g:DecoratorPanel>
+				    	<g:VerticalPanel horizontalAlignment="ALIGN_CENTER">
+				            <g:Label styleName='{style.titulo}'>Filtrar</g:Label>
+							<g:HorizontalPanel verticalAlignment="ALIGN_MIDDLE"  spacing="4">
+			                    <g:Label styleName='{style.label}' width="100px">Filtrar por: </g:Label>
+			                    <g:ListBox ui:field="listBoxFilt"  width="200px"></g:ListBox>
+							</g:HorizontalPanel>
+			                <g:Button ui:field='filtButtonClas' styleName='{style.button}'>Filtrar</g:Button>
+				        </g:VerticalPanel>
+				    </g:DecoratorPanel>
+				</g:VerticalPanel>
+				<g:VerticalPanel><!-- CONFIGURACION -->
+				    <g:cell horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_MIDDLE">
+					<g:Button ui:field='configuracion' styleName='{style.button}'>TODO
+					</g:Button>
+					</g:cell>
+				</g:VerticalPanel>
+				<g:VerticalPanel><!-- EMPTY -->
+				    <g:cell horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_MIDDLE">
+						<g:HTMLPanel>Por favor seleccione uno de sus grupos.</g:HTMLPanel>
+					</g:cell>
+				</g:VerticalPanel><!-- GIVEPOINTS -->
+				<g:VerticalPanel horizontalAlignment="ALIGN_CENTER">
+				    <g:FlexTable ui:field='selectedTable' styleName='{style.table}'
+							cellSpacing='0' cellPadding='0' />
+				    <g:DecoratorPanel>
+				        <g:VerticalPanel horizontalAlignment="ALIGN_CENTER">
+				            <g:Label styleName='{style.titulo}'>A puntuar!</g:Label>
+				            <g:HorizontalPanel verticalAlignment="ALIGN_MIDDLE" spacing="4">
+			                    <g:Label styleName='{style.label}' width="100px">Tarea a puntuar: </g:Label>
+			                    <g:ListBox ui:field="listBoxTask"  width="200px"></g:ListBox>
+			                </g:HorizontalPanel>
+			                <g:HorizontalPanel verticalAlignment="ALIGN_MIDDLE" spacing="4">
+			                    <g:Label styleName='{style.label}' width="100px">Puntuación: </g:Label>
+			                    <g:ListBox ui:field="pointsListBox"  width="200px"></g:ListBox>
+			                </g:HorizontalPanel>
+			                <g:HorizontalPanel verticalAlignment="ALIGN_MIDDLE" spacing="4">
+						    	<g:Button ui:field='backButton' styleName='{style.button}'>Atrás</g:Button>
+								<g:Button ui:field='givePointsButton' styleName='{style.button}'>Dar Puntos</g:Button>
+							</g:HorizontalPanel>
+				        </g:VerticalPanel>
+				    </g:DecoratorPanel>
+				</g:VerticalPanel>
+			</g:DeckPanel>
+
+		</g:center>
+
+		<!-- <g:south size="10">
+			<g:HorizontalPanel width="100%" height="100%">
+
+			</g:HorizontalPanel>
+		</g:south> -->
+	</g:DockLayoutPanel>
+</ui:UiBinder>

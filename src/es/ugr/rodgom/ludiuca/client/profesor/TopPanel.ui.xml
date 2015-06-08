@@ -1,0 +1,73 @@
+<!DOCTYPE ui:UiBinder 
+  SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent"
+>
+<ui:UiBinder
+  xmlns:ui='urn:ui:com.google.gwt.uibinder'
+  xmlns:g='urn:import:com.google.gwt.user.client.ui'
+  xmlns:ludiuca='urn:import:es.ugr.rodgom.ludiuca.client.profesor'>
+
+  <ui:image field='logo' src='logo.png'/>
+  <ui:image field='avatar' src='avatar-prof.png' />
+
+  <!-- IE6 cannot handle transparent png, which is what ImageResource creates -->
+  <ui:data field='logoIe6Data' src='logo_ie6.gif' />
+  <ui:data field='avatarIe6Data' src='avatar_ie6-prof.gif' />
+
+  <ui:style>
+
+  .statusDiv {
+    text-align: right;
+    margin: 1em;
+  }
+
+  .linksDiv {
+    text-align: right;
+  }
+
+  @if user.agent ie6 {
+    @url logoIe6 logoIe6Data;
+    .logo {
+      background-image: logoIe6;
+      position: absolute;
+    }
+  } @else {
+    @sprite .logo {
+      gwt-image: 'logo';
+      position: absolute;
+    }
+  }
+
+  @if user.agent ie6 {
+    @url logoIe6 logoIe6Data;
+    .avatar {
+      background-image: avatarIe6;
+      position: absolute;
+      right: 200px;
+    }
+  } @else {
+    @sprite .avatar {
+      gwt-image: 'avatar';
+      position: absolute;
+      right: 200px;
+    }
+  }
+  </ui:style>
+
+  <g:HTMLPanel>
+    <div class='{style.logo}'/>
+    
+    <div class='{style.avatar}'/>
+    
+    <div class="{style.statusDiv}">
+      <div>
+        <b>Bienvenid@ <span ui:field='username'></span>!</b>
+      </div>
+
+      <div class='{style.linksDiv}'>
+        <g:Anchor href='javascript:;' ui:field='signOutLink'>Salir</g:Anchor>
+        &nbsp;
+        <g:Anchor href='javascript:;' ui:field='aboutLink'>Sobre Ludiuca</g:Anchor>
+      </div>
+    </div>
+  </g:HTMLPanel>
+</ui:UiBinder>

@@ -1,0 +1,73 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+	<ui:style>
+		.important {
+		font-weight: bold;
+		}
+
+		.button {
+		margin: 10px;
+		padding: 5px 7px;
+		text-decoration: none;
+		cursor: pointer;
+		cursor: hand;
+		font-size:small;
+		border:1px solid #bbb;
+		border-bottom: 1px solid #a0a0a0;
+		border-radius: 3px;
+		-moz-border-radius: 3px;
+		}
+
+		.label{
+		font-weight: bold;
+		font-size: 125%;
+		margin: 10px;
+		}
+
+		.labelred{
+		color: red;
+		margin: 10px;
+		}
+
+		.textbox {
+		margin: 10px;
+		width: 150px;
+		height: 25px;
+		}
+
+		.linksDiv {
+		text-align: right;
+		}
+		}
+	</ui:style>
+
+	<g:HTMLPanel>
+		<g:LayoutPanel> 
+			<g:layer left='35%' right='35%' top='150px' height='20em'>
+				<g:DecoratorPanel>
+					<g:VerticalPanel horizontalAlignment="ALIGN_CENTER">
+						<g:Label ui:field='answerServer' styleName='{style.labelred}'></g:Label>
+						<g:Label styleName='{style.label}'>Por favor, introduzca su usuario y
+							contraseña</g:Label>
+						<g:HorizontalPanel verticalAlignment="ALIGN_MIDDLE">
+							<g:Label width="75px">Nombre:</g:Label>
+							<g:TextBox height="auto" styleName='{style.textbox}'
+								ui:field="nombre"></g:TextBox>
+						</g:HorizontalPanel>
+						<g:HorizontalPanel verticalAlignment="ALIGN_MIDDLE">
+							<g:Label width="75px">Contraseña:</g:Label>
+							<g:PasswordTextBox height="auto" styleName='{style.textbox}'
+								ui:field="password" />
+						</g:HorizontalPanel>
+						<g:HorizontalPanel verticalAlignment="ALIGN_MIDDLE">
+							<g:Button styleName='{style.button}' ui:field="buttonProfesor">Profesor</g:Button>
+							<g:Button styleName='{style.button}' ui:field="buttonAlumno">Alumno</g:Button>
+						</g:HorizontalPanel>
+					</g:VerticalPanel>
+				</g:DecoratorPanel>
+			</g:layer>
+			</g:LayoutPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

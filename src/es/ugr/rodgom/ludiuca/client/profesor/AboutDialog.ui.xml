@@ -1,0 +1,45 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+  xmlns:g='urn:import:com.google.gwt.user.client.ui'
+  xmlns:ludiuca='urn:import:es.ugr.rodgom.ludiuca.client'>
+
+  <ui:image field='logo' src='logo.png'/>
+
+  <ui:style>
+  .panel {
+    padding: 10px;
+ 	}
+
+  .aboutText {
+    text-align: left;
+  }
+
+  @sprite .logo {
+    gwt-image: 'logo';
+    float: left;
+    padding-right: 1em;
+  }
+
+  .buttons {
+    text-align: right;
+  }
+  </ui:style>
+
+  <g:HTMLPanel width='20em' styleName='{style.panel}'>
+    <div class='{style.logo}'/>
+
+    <div class='{style.aboutText}'>
+    Este programa ha sido desarrollado como un inicio a la ludificación en el aula.
+    <br />
+    Pretende ser un punto de partida desde el que la comunidad de desarrolladores pueda 
+    contribuir para aumentar la mermada motivación actual del alumnado en cualquier nivel
+    educativo.
+    <br />
+    <br />
+    Un proyecto motivante, ¿verdad? ¿Te unes?
+    </div>
+
+    <div class='{style.buttons}'>
+      <g:Button text='Close' ui:field='closeButton' />
+    </div>
+  </g:HTMLPanel>
+</ui:UiBinder>
